@@ -14,7 +14,6 @@ const Slider = () => {
   
   // Correction pour que le slider affiche la première image une fois arrivé à la dernière sans afficher de page blanche entre les 2
   const dataLength = data?.focus.length
-
   const nextCard = () => {
     setTimeout(
       // Ajout de -1 après "length"
@@ -48,7 +47,7 @@ const Slider = () => {
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
               {byDateDesc?.map((event, radioIdx) => (
-          // {byDateDesc.map((_, radioIdx)
+              // {byDateDesc.map((_, radioIdx)
             <input
               key={event.title}
               // key={`${event.id}`} correction event n'a pas d'id
