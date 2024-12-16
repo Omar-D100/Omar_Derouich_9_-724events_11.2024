@@ -116,7 +116,6 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <h3>Notre derniére prestation</h3>
         {last && ( // verification si last est défini avant de rendre l'EventCard
           <EventCard
             imageSrc={last.cover}
