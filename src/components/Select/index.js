@@ -13,12 +13,12 @@ const Select = ({
   label,
   type = "normal",
 }) => {
-  const [value, setValue] = useState();
-  const [collapsed, setCollapsed] = useState(true);
+  const [value, setValue] = useState(null); // Par défaut, aucune valeur sélectionnée
+  const [collapsed, setCollapsed] = useState(true); // Par défaut, le menu est fermé
   const changeValue = (newValue) => {
-    onChange();
-    setValue(newValue);
-    setCollapsed(newValue);
+    onChange(newValue); // Appelle la fonction onChange pour transmettre la nouvelle valeur au parent
+    setValue(newValue); // Met à jour la valeur sélectionnée
+    setCollapsed(true); // Ferme le menu déroulant après sélection
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
@@ -68,6 +68,7 @@ const Select = ({
 
 const Arrow = () => (
   <svg
+    cursor="pointer"
     width="21"
     height="11"
     viewBox="0 0 21 11"
