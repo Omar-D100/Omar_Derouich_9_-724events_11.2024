@@ -26,6 +26,17 @@ export const DataProvider = ({ children }) => {
       setError(err);
     }
   }, []);
+
+  // Récupère la liste des événements depuis l'objet "data".
+  const events = data?.events;
+
+  // Trie les événements par dates décroissantes (plus récent en premier).
+  const sortedEvents = events?.sort((evtA, evtB) => new Date(evtA.date) > new Date(evtB.date) ? -1 : 1);
+
+  // Récupère le premier élément du tableau trié, à savoir l'événement le plus récent.
+  const last = sortedEvents?.[0];
+
+
   useEffect(() => {
     if (data) return;
     getData();
@@ -37,6 +48,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
+        last, // ajout de la valeur last pour afficher le dernier projet 
       }}
     >
       {children}
